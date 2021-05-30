@@ -16,8 +16,8 @@ SHELL_FOLDER=$(pwd)
 CONTAINER_NAME=""
 CONFIG_PATH=""
 PANEL_PATH=""
-LOG_PATH=""
 SCRIPTS_PATH=""
+LOG_PATH=""
 TAG="gitee"
 
 HAS_IMAGE=false
@@ -129,8 +129,9 @@ input_container_name
 log "1.开始创建配置文件目录"
 mkdir -p $CONFIG_PATH
 mkdir -p $PANEL_PATH
-mkdir -p $LOG_PATH
 mkdir -p $SCRIPTS_PATH
+mkdir -p $LOG_PATH
+
 
 
 if [ $HAS_IMAGE = true ] && [ $PULL_IMAGE = true ]; then
@@ -148,8 +149,8 @@ log "3.开始创建容器并执行,若出现Unable to find image请耐心等待"
 docker run -dit \
     -v $CONFIG_PATH:/jd/config \
     -v $PANEL_PATH:/jd/panel \
-    -v $LOG_PATH:/jd/log \
     -v $SCRIPTS_PATH:/jd/scripts \
+    -v $LOG_PATH:/jd/log \
     --name $CONTAINER_NAME \
     --hostname jd \
     -e ENABLE_HANGUP=true \
