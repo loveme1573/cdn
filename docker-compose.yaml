@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  jd:
+    image: shuye72/jd-base:gitee
+    container_name: jd
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "5678:5678"
+    network_mode:
+      - "host"
+    volumes:
+      - "$PWD/jd/log:/jd/log"
+      - "/elecv2p/Lists:/usr/local/app/script/Lists"
+      - "$PWD/jd/panel:/jd/panel"
+      - "$PWD/jd/scripts:/jd/scripts"
+      - "$PWD/jd/log:/jd/log"
