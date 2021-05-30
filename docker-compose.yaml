@@ -11,8 +11,7 @@ services:
     network_mode:
       - "host"
     volumes:
-      - "$PWD/jd/log:/jd/log"
-      - "/elecv2p/Lists:/usr/local/app/script/Lists"
+      - "$PWD/jd/config:/jd/config"
       - "$PWD/jd/panel:/jd/panel"
       - "$PWD/jd/scripts:/jd/scripts"
       - "$PWD/jd/log:/jd/log"
